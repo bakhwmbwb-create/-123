@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الأول</title>
+    <!-- استدعاء الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #12100e;
+            --bg-card: #1d1a17;
+            --gold-primary: #d4af37;
+            --text-light: #f5f5f7;
+            --text-muted: #b3a594;
+            --border-color: #3d3429;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* شريط التنقل */
+        .navbar {
+            background-color: rgba(18, 16, 14, 0.95);
+            border-bottom: 2px solid var(--gold-primary);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a.active {
+            color: var(--gold-primary);
+        }
+
+        /* محتوى الدرس */
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .lesson-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lesson-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .lesson-text {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--gold-primary);
+            text-decoration: none;
+            border: 1px solid var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            width: 80px;
+
+        }
+
+        .back-btn:hover {
+            background-color: var(--gold-primary);
+            color: #000;
+        }
+
+        footer {
+            background-color: #0a0908;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="logo">اجتماع دانيال النبي</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="الاسر.html">الأسر</a></li>
+                <li><a href="الاخبار.html">الأخبار</a></li>
+                <li><a href="الدروس.html" class="active">الدروس</a></li>
+            </ul>
+        </nav>
+    </header>
+<a href="الدروس.html" class="back-btn">العوده</a>
+
+
+    <!-- محتوى الدرس (عنوان + فقرة واحدة فقط) -->
+    <main class="main-container">
+        <div class="lesson-card">
+            
+            <!-- العنوان -->
+            <h1 class="lesson-title">سر القوة وسط الموجه* 📖</h1>
+            
+            <!-- الفقرة -->
+            <p class="lesson-text">
+            مساء الخير يا شباب! 👋
+حد فيكم جرب قبل كده يعوم عكس التيار؟ أو يركب مواصلة وزحمة الناس كلها بتزقه في اتجاه وهو محتاج يمشي في الاتجاه العكسي تماماً؟ 🌊
+إحساس صعوبة الحركة والمقاومة ده، هو بالظبط اللي بنحس بيه كل يوم. بنكون ماشيين في الشارع، الميديا، السوشيال ميديا، الموضة، طريقة الكلام، وحتى أفكار زمايلنا... كل حاجة حوالينا بتزقنا نكون نسخ مكررة من المجتمع.
+من حوالي ٢٦٠٠ سنة، كان فيه شاب في نفس سنكم، اسمه دانيال. الشاب ده اتأسر وتاه من أهله وبلده، ولقى نفسه فجأة في قلب "بابل" – أعظم وأقوى إمبراطورية وقتها، بس كانت مليانة وثنية وإغراءات وضغوطات مش طبيعية. 🏛️
+❓ السؤال هنا: هل دانيال اتمسح وسط الزحمة؟ هل قال "أنا مجبر وكل الناس بتعمل كده"؟
+━━━━━━━━━━━━━━
+📖 المحور الأول: "وضع في قلبه" (قرار المبادئ)
+أول حاجة عملوها مع دانيال وأصحابه في بابل، إنهم غيروا أساميهم، وعلموهم لغتهم، وادوههم من أكل الملك وخمره. كان هدفهم بسيط: نمحي هويتهم القديمة ونعملهم إعادة تشكيل.
+✝️ وهنا بتيجي آية من أجمل الآيات في الكتاب المقدس:
+"وَأَمَّا دَانِيآلُ فَوَضَعَ فِي قَلْبِهِ أَنْ لاَ يَتَنَجَّسَ" (دانيال ١: ٨) 📖
+💡 الفكرة ليك النهارده: دانيال ما استناش لما الأكل يتحط قدامه عشان يفكر هيعمل إيه. هو أخد القرار المسبق في قلبه.
+⚠️ التحدي اللي بيواجهك في ثانوي: الشلة، الفرجة على حاجات غلط، التجربة، السجاير، أو طريقة الكلام... لو ما أخدتش قرارك المسبق قبل ما تتحط في الموقف، التيار هيجرفك. بتبدأ من القرار الداخلي.
+━━━━━━━━━━━━━━
+📖المحور الثاني: التميز مش الانعزال (الشهادة بالنجاح)
+دانيال ما جاش قال: "أنا رافض المجتمع ده فمش هتعلم ولا هدرس ولغتكوا وحشة!"
+بالعكس! دانيال وأصحابه اتعلموا لغة الكلدانيين وثقافتهم، واجتهدوا جداً، ولما الملك اختبرهم لقوهم أفضل ١٠ أضعاف من كل العلماء اللي في المملكة. 💪
+💡 الفكرة ليك النهارده: تدينك وقربك من ربنا مش معناه إهمالك في دراستك أو إنك تكون شخص سلبي. بالعكس، المسيحي الحقيقي هو أكتر واحد أشطر في مدرسته، منظم في وقته، ومتميز في مجاله. نجاحك وتفوقك هو أكبر شهادة لإيمانك. ✝️
+━━━━━━━━━━━━━━
+🙏 المحور الثالث: الصلاة هي سر الشجاعة
+لما دانيال كبر وبقى في أعلى المناصب، الأعداء غيروا منه وما لقوش فيه غلطة واحدة! الحجة الوحيدة اللي قدروا يمسكوها عليه هي علاقته بربنا. أصدروا قانون إن اللي يصلي لأي إله غير الملك يترمى في جُب الأسود. 🦁
+❓ تفتكروا دانيال عمل إيه؟ استخبى؟ خاف؟
+🙏 دانيال فتح شبابيك بيته، وصلى ٣ مرات في اليوم زي ما كان بيعمل متعود!
+💡 الفكرة ليك النهارده: دانيال ما جابش القوة دي لما دخل جُب الأسود، القوة دي كانت نتيجة العادة اليومية لحياة الصلاة.
+🛐 لما بتكون واقف كل يوم قدام ربنا في أوضتك، مفيش أي أسد في العالم (سواء خوف من المستقبل، كلام الناس، أو الضغوط) يقدر يخوفك.
+━━━━━━━━━━━━━━
+✝️❤️ الخاتمة والنداء (Call to Action): ❤️✝️
+يا شباب، ربنا مش طالب مننا ننعزل عن العالم، لكن طالب مننا نكون نور جواه. دانيال عاش في بابل بس بابل ما عاشتش جواه. 🕯️
+📖 النهاردة، دانيال بيسألك:
+❓ إيه القرار اللي محتاج تاخده في قلبك النهارده وتثبت عليه؟
+❓ إيه الـ "بابل" أو الضغط اللي محتاج تبطل تتساهل معاه؟
+🙏 افتكر دايماً: اللي بيحترم مبادئه وبيثبت مع ربنا، ربنا بيميزه ويرفعه قدام الكل ✝️🕊️
+            </p>

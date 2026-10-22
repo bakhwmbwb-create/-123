@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأخبار</title>
+    <!-- استدعاء الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== المتغيرات والإعدادات العامة ==================== */
+        :root {
+            --bg-dark: #12100e;
+            --bg-card: #1d1a17;
+            --gold-primary: #d4af37;
+            --gold-hover: #f3e5ab;
+            --text-light: #f5f5f7;
+            --text-muted: #b3a594;
+            --border-color: #3d3429;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ==================== شريط التنقل (Navbar) ==================== */
+        .navbar {
+            background-color: rgba(18, 16, 14, 0.95);
+            border-bottom: 2px solid var(--gold-primary);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--gold-primary);
+            background-color: rgba(212, 175, 55, 0.1);
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        /* ==================== هيدر الصفحة ==================== */
+        .page-header {
+            background: linear-gradient(180deg, rgba(18, 16, 14, 0.6) 0%, rgba(18, 16, 14, 0.95) 100%), 
+                        url('daniel.jpeg') center/cover no-repeat;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            color: var(--gold-primary);
+        }
+
+        /* ==================== شبكة الأخبار ==================== */
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* كارت الخبر */
+        .news-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .news-card h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .news-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            white-space: pre-line;
+        }
+
+        /* ==================== تنسيق Details / Summary لـ "عرض المزيد" ==================== */
+        details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* أخفاء السهم الافتراضي للـ summary */
+        summary {
+            list-style: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* تصميم زر عرض المزيد */
+        .read-more-btn-text {
+            display: inline-block;
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-align: center;
+            background: rgba(212, 175, 55, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn-text:hover {
+            background-color: var(--gold-primary);
+            color: #000;
+        }
+
+        /* تغيير نص الزر عند الفتح وإخفائه عند الغلق تلقائياً */
+        details .show-less-text { display: none; }
+        details .show-more-text { display: inline; }
+
+        details[open] .show-less-text { display: inline; }
+        details[open] .show-more-text { display: none; }
+
+        .details-content {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== التذييل (Footer) ==================== */
+        footer {
+            background-color: #0a0908;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل (Navbar) -->
+    <header class="navbar">
+        <div class="logo">اجتماع دانيال النبي</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="الاسر.html">الأسر</a></li>
+                <li><a href="الاخبار.html" class="active">الأخبار</a></li>
+                <li><a href="الدروس.html">الدروس</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- هيدر الصفحة -->
+    <section class="page-header">
+        <h1>الأخبار</h1>
+    </section>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-container">
+        <div class="news-grid">
+
+            <!-- كارت الخبر الأول -->
+            <article class="news-card">
+                <h3>درجات التقيم الاول</h3>
+                
+                <p>📊 درجات وتقديرات ثانوي الشهر الاول 9 أكتوبر 26 ✝️
+
+🥇 أبانوب ممدوح عياد — 35/40 (87.5%) — 🌟 امتياز
+🥇 ساندي نزهي عزمي — 34/40 (85%) — 🌟 امتياز</p>
+
+                <!-- عنصر details المستقل تماماً -->
+                <details>
+                    <summary>
+                        <span class="read-more-btn-text">
+                            <span class="show-more-text">عرض التفاصيل والدرجات ...</span>
+                            <span class="show-less-text">إخفاء التفاصيل ▲</span>
+                        </span>
+                    </summary>
+                    <div class="details-content">
+                        <p>🥈 مرثا طلعت مسعود — 33/40 ⬅️ 82.5% — 💚 جيد جدًا
+🥈 ونس شنودة ميخائيل — 30/40 ⬅️ 75% — 💚 جيد جدًا
+🥈 جاسيكا جرجس عبدالقادر — 30/40 ⬅️ 75% — 💚 جيد جدًا
+🥉 مهرائيل مينا ناجح — 29/40 ⬅️ 72.5% — 💙 جيد
+🥉 انجي ثابت مرسال — 29/40 ⬅️ 72.5% — 💙 جيد
+🥉 مادونا أغاثون روماني — 28/40 ⬅️ 70% — 💙 جيد
+🥉 مهرائيل يؤنس ميخائيل — 28/40 ⬅️ 70% — 💙 جيد
+🥉 ميرنا شنودة مرزوق — 28/40 ⬅️ 70% — 💙 جيد
+🥉 موسى جرجس عبد القادر — 27/40 ⬅️ 67.5% — 💙 جيد
+🥉 كيرلس مينا مسعد — 27/40 ⬅️ 67.5% — 💙 جيد
+🥉 مايڤن ماجد ناروز — 27/40 ⬅️ 67.5% — 💙 جيد
+📌 كاترين مجدي روماني — 26/40 ⬅️ 65% — 💙 جيد
+📌 سلڤانا شنودة صموئيل — 26/40 ⬅️ 65% — 💙 جيد
+📌 نرڤانا أسعد سعيد — 24/40 ⬅️ 60% — 💙 جيد
+📌 مريم عازر سعد — 24/40 ⬅️ 60% — 💙 جيد
+📌 ماريا فايق سعدالله — 24/40 ⬅️ 60% — 💙 جيد
+📌 كيرلس عماد صباح — 23/40 ⬅️ 57.5% — 🟡 مقبول
+📌 مريم عزيز ميخائيل — 23/40 ⬅️ 57.5% — 🟡 مقبول
+📌 يوستينا صليب عادل — 23/40 ⬅️ 57.5% — 🟡 مقبول
+📌 ايريني عدلي غطاس — 22/40 ⬅️ 55% — 🟡 مقبول
+📌 مريم جرجس حفظي — 22/40 ⬅️ 55% — 🟡 مقبول
+📌 يسى رياض أديب — 20/40 ⬅️ 50% — 🟡 مقبول
+📌 مارسلينو يوسف رمزي — 20/40 ⬅️ 50% — 🟡 مقبول
+📌 أفرايم جرجس روماني — 20/40 ⬅️ 50% — 🟡 مقبول
+📌 محب كمال ظريف — 20/40 ⬅️ 50% — 🟡 مقبول
+📌 مهرائيل عاطف غطاس — 20/40 ⬅️ 50% — 🟡 مقبول
+📌 فيبي سامح شوقي — 18/40 ⬅️ 45% — 🔴 ضعيف
+📌 كاراس يعقوب عبد المسيح — 17/40 ⬅️ 42.5% — 🔴 ضعيف
+
+━━━━━━━━━━━━━━
+
+📋 مفتاح التقديرات:
+🌟 امتياز: من 85% إلى 100%
+💚 جيد جدًا: من 75% إلى أقل من 85%
+💙 جيد: من 60% إلى أقل من 75%
+🟡 مقبول: من 50% إلى أقل من 60%
+🔴 ضعيف: أقل من 50%</p>
+                    </div>
+                </details>
+            </article>
+
+            <!-- كارت الخبر الثاني -->
+            <article class="news-card">
+                <h3>المؤتمر الأول</h3>
+                
+                <p>مش كل اللي بقوا كتير، كانوا صح… ومش كل اللي فضلوا قليلين، كانوا لوحدهم.
+في زمن الكل فيه ماشي في اتجاه واحد…
+إنت RΞMNΛNT… ولا أغلبية؟ 🖤</p>
+
+                <!-- عنصر details المستقل تماماً -->
+                <details>
+                    <summary>
+                        <span class="read-more-btn-text">
+                            <span class="show-more-text">عرض تفاصيل المؤتمر ...</span>
+                            <span class="show-less-text">إخفاء التفاصيل ▲</span>
+                        </span>
+                    </summary>
+                    <div class="details-content">
+                        <p>━━━━━━━━━━━━━━
+
+RΞMNΛNT
+
+30.10 | SAN MAURICE — LUXOR
+يوم مختلف مع أسرة دانيال النبي؛ يوم نتعلم فيه، وننمو، ونثمر، ونمجد اسم ربنا.
+📍 المكان: سان موريس – الأقصر
+📅 الموعد: الجمعة 30 أكتوبر 2026  
+⏰ التحرك: بعد التناول مباشرة  
+🏁 نهاية اليوم: الساعة 3 عصرًا
+💰 الاشتراك: 60 جنيه، شامل الفطار.
+━━━━━━━━━━━━━━
+📖 هدف اليوم
+اليوم تعليمي في الأساس؛ هدفنا نتعلم وننمو في حياتنا الروحية والعملية، ونثمر لمجد اسم ربنا.
+وطبعًا، ده مش معناه إننا مش هنعرف نستمتع بيومنا! 😉
+🎯 Entertainment Corner
+ 🏓 بينج بونج  
+🎱 بلياردو 
+ 🎮 كرمز 
+━━━━━━━━━━━━━━
+📌 شروط الاشتراك
+• اليوم مخصص لأبناء أسرة دانيال النبي .
+• يشترط للاشتراك حضور 3 أسابيع على الأقل من إجمالي 5 أسابيع في المسابقة الأولى.
+━━━━━━━━━━━━━━
+🚨 آخر موعد للاشتراك
+الأحد 25 أكتوبر 2026
+⚠️ لن يتم قبول أي اشتراكات بعد يوم الأحد، دون أي استثناءات.
+ياريت كل اللي مستوفي الشروط وحابب يشارك يلتزم بموعد الاشتراك.
+━━━━━━━━━━━━━━
+RΞMNΛNT 🖤
+30.10 — The day is closer than you think.</p>
+                    </div>
+                </details>
+            </article>
+           
+        </div>
+    </main>
+
+    
+
+</body>
+</html>
