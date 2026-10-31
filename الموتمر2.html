@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الأول</title>
+    <!-- استدعاء الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #12100e;
+            --bg-card: #1d1a17;
+            --gold-primary: #d4af37;
+            --text-light: #f5f5f7;
+            --text-muted: #b3a594;
+            --border-color: #3d3429;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* شريط التنقل */
+        .navbar {
+            background-color: rgba(18, 16, 14, 0.95);
+            border-bottom: 2px solid var(--gold-primary);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a.active {
+            color: var(--gold-primary);
+        }
+
+        /* محتوى الدرس */
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .lesson-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lesson-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .lesson-text {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--gold-primary);
+            text-decoration: none;
+            border: 1px solid var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            width: 80px;
+
+        }
+
+        .back-btn:hover {
+            background-color: var(--gold-primary);
+            color: #000;
+        }
+
+        footer {
+            background-color: #0a0908;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="logo">اجتماع دانيال النبي</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                 <li><a href="قصه.html">قصه دانيال النبي</a></li>
+                <li><a href="الاسر.html">الأسر</a></li>
+                <li><a href="الاخبار.html">الأخبار</a></li>
+                <li><a href="الدروس.html" class="active">الدروس</a></li>
+            </ul>
+        </nav>
+    </header>
+<a href="الدروس.html" class="back-btn">العوده</a>
+
+
+    <!-- محتوى الدرس (عنوان + فقرة واحدة فقط) -->
+    <main class="main-container">
+        <div class="lesson-card">
+            
+            <!-- العنوان -->
+            <h1 class="lesson-title">من الانجذاب الي الاحترام </h1>
+            
+            <!-- الفقرة -->
+            <p class="lesson-text">كلنا بنمر في مرحلة الثانوي بتغيرات سريعة ومشاعر جديدة ومبهرة (إعجاب، لفت انتباه، الرغبة في التقدير).
+الفكرة: المشاعر دي طبيعية جداً ومش عيب، بس السؤال: إزاي نتعامل معاها؟ هل هنسوقها ولا هي اللي هتسوقنا؟
+1. التسمية والاعتراف (اعرف شعورك إيه بالضبط)
+المشكلة فين؟ أحياناً بنحس بحالة لغبطة (ضيق، توتر، إعجاب، حماس مفاجئ) من غير ما نعرف نحدد إحنا حاسين بإيه أصلاً.
+الحل: سمّي الشعور باسمه الحقيقي. هل هو إعجاب مؤقت؟ هل هو احتياج للتقدير؟ هل هو شعور بالفضول؟ تسمية الشعور بتفرغ نص طاقته السلبية وبتخليك واقف على أرض صلبة.
+2. الفصل بين "المشاعر" و"القرارات" (الشعور ضيف مش سيطر البيت)
+المشاعر بطبيعتها متغيرة وسريعة الاشتعال، خصوصاً في مرحلة الشباب أو في المواقف اللي فيها إبهار خارجي.
+القاعدة الذهبية: المشاعر "مؤشر" وليست "مقرر". يعني الشعور بيدق لك إنتباه (انتبه، هنا في إعجاب أو هنا في إنجذاب)، لكنه مش هو اللي ياخد قرار الارتباط أو التفاعل. القرار ياخده العقل والتقييم الواعي للقيم والأخلاق.
+3. التمهل ومنح النفس "مسافة أمان" (الهدوء وقت العاصفة)
+وقت ما المشاعر تكون متأججة (سواء فرحة مبالغ فيها، أو إعجاب قوي، أو حتى غضب)، بتبقى القدرة على التفكير المنطقي في أدنى مستوياتها.
+الحل البسيط هو الوقف المؤقت (Pause): متخدش أي خطوة، متكتبش رسالة، ومتتخذش قرار وأنت في قمة التفاعل العاطفي. استنى لحد ما الهدوء يرجع وتفكر بعقلانية.
+4. التوجيه والاستثمار (تحويل الطاقة لمكانها الصح)
+طاقة المشاعر والانجذاب طاقة قوية جداً. لو سبناها بدون توجيه، ممكن تستنزفنا أو تودينا في سكة مش صح.
+الصح هو إعادة توجيه الطاقة دي: البناء الشخصي، التركيز في الهدف، تطوير المهارات، أو توجيهها للخدمة الإيجابية (زي شغلنا مع الشباب أو طموحاتنا). الطاقة العاطفيّة لما بتتوجه للنجاح بتبني إنسان قوي.
+2 : الانجذاب السطحي (القشرة والخدعة):
+بيبدأ بالشكل الخارجي والإبهار المؤقت.  
+بيخلينا نتخيل صورة مثالية مش حقيقية للشخص.  
+شعور سريع ممكن يخدعنا لو مش مبني على أساس متين.  
+الاحترام المتبادل (الجوهر والثبات):
+بيبني العلاقة على جوهر الشخص، أخلاقه، وقيمه الحقيقية.  
+بيقوم على الوضوح، الفهم الواقعي، والثبات مع مرور الوقت.
+3: علاقات خاطئة : 
+١ : بلا عنوان 
+ قيمتك في النور
+1. النور يعني الوضوح والأمان
+العلاقة الحقيقية التي تحترم وجودكِ لا تحتاج للخفاء أو الهمس. من يقدر قيمتكِ بحق، يريد لكِ الأمان والكرامة، ويسعى ليكون في حياتكِ بشكل واضح، محترم، وفي الوقت والظرف المناسبين.
+2. الظل يسرق منكِ راحة البال
+الوجود في علاقة خفية أو بلا مسمى صريح يضعكِ دائماً في حالة قلق وتوتر: "هل يخدعني؟  ليه ! 
++علاقة بلا معرفة الأهل 
++علاقة فيها تجاوز 
++علاقة تجلب خراب</p>
